@@ -1,4 +1,4 @@
-
+<div class="container">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -11,17 +11,16 @@
     </thead>
     <tbody>
      <?php
-     foreach($results as $car) {
+     foreach($results as $driver) {
        echo "<tr>";
-       echo "<td>".$car->getId_conducteur()."</td>";
-       echo "<td>".$car->getPrenom()."</td>";
-       echo "<td>".$car->getNom()."</td>";
-       echo "<td><a href='./index.php?action=updateCar'><img src='./public/icons/edit.png' width='25px' height='25px'></a></td>";
-       echo "<td><a href='./index.php?action=updateCar'><img src='./public/icons/delete.png' width='25px' height='25px'></a></td>";
+       echo "<td>".$driver->getId_conducteur()."</td>";
+       echo "<td>".$driver->getPrenom()."</td>";
+       echo "<td>".$driver->getNom()."</td>";
+       echo "<td><a href='./index.php?action=updateDriver'><img src='./public/icons/edit.png' width='25px' height='25px'></a></td>";
+       echo "<td><a href='./index.php?action=deleteDriver'><img src='./public/icons/delete.png' width='25px' height='25px'></a></td>";
        echo "</tr>";
      }
-
      ?>
     </tbody>
   </table>
-  
+  </div>

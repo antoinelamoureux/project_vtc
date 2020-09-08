@@ -89,14 +89,18 @@ class Car
         return $this->immatriculation = $immatriculation;
     }
 
-    // Connexion BD
-
-    
     // CRUD
 
     public function createCar($marque, $modele, $couleur, $immatriculation)
     {
-        # code...
+        $bdd = Connection::getConnection();
+
+        $sql = $bdd->prepare("INSERT INTO Cars(marque, modele, couleur, immatriculation) VALUES ('$marque', '$modele', '$couleur', '$immatriculation')");
+
+		
+		if (!$sql->execute()){
+			die("Oups, il y'a une erreur dans la requete");
+		}
     }
 
     public function readCar()

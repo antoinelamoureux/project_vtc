@@ -1,4 +1,4 @@
-
+<div class="container">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -23,8 +23,8 @@
        echo "<td><a href='./index.php?action=updateCar'><img src='./public/icons/delete.png' width='25px' height='25px'></a></td>";
        echo "</tr>";
      }
-
      ?>
     </tbody>
   </table>
+</div>
   

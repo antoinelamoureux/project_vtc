@@ -95,14 +95,21 @@ class Driver
 
     public function createDriver($prenom, $nom)
     {
-        # code...
+        $bdd = Connection::getConnection();
+
+        $sql = $bdd->prepare("INSERT INTO Drivers(prenom, nom) VALUES ('$prenom', '$nom')");
+
+		
+		if (!$sql->execute()){
+			die("Oups, il y'a une erreur dans la requete");
+        }
     }
 
     public function readDriver()
     {
         $bdd = Connection::getConnection();
     
-            $sql = $bdd->prepare("SELECT * FROM Drivers");
+            $sql = $bdd->prepare("SELECT * FROM drivers");
             
             $sql->execute();
     
@@ -117,6 +124,11 @@ class Driver
 
     public function deleteDriver($id_conducteur)
     {
-        # code...
+        $bdd = Connection::getConnection();
+
+        $sql = $bdd->prepare("DELETE FROM drivers WHERE id_conducteur=?");
+        $paramValue = array(
+            $id_conducteur
+        );
     }  
 }

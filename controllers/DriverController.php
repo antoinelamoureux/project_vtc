@@ -3,9 +3,17 @@
 require_once './models/Driver.php';
 
 class DriverController {
+    public function readDriver()
+    {
+        $driver = new Driver();
+        $results = $driver->readDriver();
+        require_once './views/readDriver.php';
+    }
+
     public function createDriver()
     {
         $driver = new Driver();
+        require_once './views/createDriver.php';
 
         if (isset($_POST['submit'])) {
             $prenom = $driver->setPrenom($_POST['prenom']);
@@ -15,12 +23,6 @@ class DriverController {
     }
     }
 
-    public function readDriver()
-    {
-        $driver = new Driver();
-        $results = $driver->readDriver();
-        require_once './views/readDriver.php';
-    }
 
     public function modifyDriver()
     {
@@ -29,6 +31,14 @@ class DriverController {
 
     public function deleteDriver()
     {
+        $driver = new Driver();
 
+        if (isset($_GET['id_conducteur'])) {
+            $idConducteur = $_GET['id_conducteur'];
+
+           $driver->deleteDriver($idConducteur);
+
+           $result = $driver->getId_conducteur();
+    }
     }
 }
