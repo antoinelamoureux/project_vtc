@@ -16,7 +16,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'readCar') {
     $car->createCar();
 }
 
-if (isset($_GET['action']) && $_GET['action'] === 'deleteDriver') {
+if (isset($_GET['action']) && $_GET['action'] === 'updateDriver') {
+
     $driver->deleteDriver();
 }
 
+if (isset($_GET['action']) && $_GET['action'] === 'deleteDriver') {
+
+    $driver->deleteDriver();
+}

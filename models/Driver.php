@@ -124,11 +124,13 @@ class Driver
 
     public function deleteDriver($id_conducteur)
     {
+        try {
         $bdd = Connection::getConnection();
 
-        $sql = $bdd->prepare("DELETE FROM drivers WHERE id_conducteur=?");
-        $paramValue = array(
-            $id_conducteur
-        );
+        $sql = $bdd->exec("DELETE FROM drivers WHERE id_conducteur=$id_conducteur");
+        echo "Supression réussie";
+    } catch(PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+      }
     }  
 }
